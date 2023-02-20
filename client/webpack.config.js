@@ -17,14 +17,11 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
-    plugins: [
-      
-    ],
+    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
 
     module: {
-      rules: [
-        
-      ],
+      rules: [{ test: /\.txt$/, use: 'raw-loader' }],
     },
+    
   };
 };
