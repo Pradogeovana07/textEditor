@@ -2,6 +2,7 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
+import './dist/install.bundle.js' //added 
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -31,3 +32,18 @@ if ('serviceWorker' in navigator) {
 } else {
   console.error('Service workers are not supported in this browser.');
 }
+
+ (()=>{const e=document.getElementById("buttonInstall");
+ window.addEventListener("beforeinstallprompt",(e=>{
+
+ })),
+ 
+ e.addEventListener("click",(async()=>{
+
+ })),
+ 
+ window.addEventListener("appinstalled",(e=>{
+
+ }))
+
+})();

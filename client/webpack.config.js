@@ -4,6 +4,22 @@ const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
+
+module.exports = {
+  // Other webpack config...
+  plugins: [
+    // Other plugins...
+    new InjectManifest({
+      // These are some common options, and not all are required.
+      // Consult the docs for more info.
+      exclude: [/.../, '...'],
+      maximumFileSizeToCacheInBytes: '...',
+      swSrc: '...',
+    }),
+  ],
+};
+
+
 // TODO: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
@@ -17,10 +33,18 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
-    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+    plugins: [ new HtmlWebpackPlugin({
+      template: './index.html',
+      title: 'J.A.T.E'})],
+      
 
     module: {
-      rules: [{ test: /\.txt$/, use: 'raw-loader' }],
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        ],
     },
     
   };
